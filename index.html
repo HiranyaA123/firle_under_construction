@@ -309,7 +309,6 @@
         rgba(42, 48, 32, 0.12) 100%
       );
       pointer-events: none;
-      transition: opacity 0.5s ease;
     }
 
     .gallery-item picture {
@@ -325,7 +324,6 @@
       object-position: 60% 30%;
       display: block;
       filter: blur(2px) saturate(1.05);
-      transition: filter 0.5s ease;
     }
 
     /* Exterior render has a different composition — pull slightly
@@ -350,16 +348,6 @@
       .gallery-item { aspect-ratio: unset; }
     }
 
-    /* Hover: blur clears, overlay fades back — desktop only */
-    @media (hover: hover) {
-      .gallery-item:hover img {
-        filter: blur(0px) saturate(1.05);
-      }
-      .gallery-item:hover::after {
-        opacity: 0.4;
-      }
-    }
-
     .gallery-credit {
       margin-top: 1.25rem;
       text-align: center;
@@ -373,8 +361,6 @@
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .hero-grain { animation: none; }
-      .gallery-item img,
-      .gallery-item::after { transition: none; }
     }
 
     /* =====================================================================

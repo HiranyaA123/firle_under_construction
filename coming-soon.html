@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cafe Primo Firle — Under Renovation, Back Soon</title>
+  <meta name="description" content="Italian dining for the whole famiglia. Caffe Primo Firle is under renovation and will be back soon in Firle, South Australia.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cafe Primo Firle — Under Renovation, Back Soon">
+  <meta property="og:description" content="Italian dining for the whole famiglia. Caffe Primo Firle is under renovation and will be back soon in Firle, South Australia.">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cafe Primo Firle — Under Renovation, Back Soon">
+  <meta name="twitter:description" content="Italian dining for the whole famiglia. Caffe Primo Firle is under renovation and will be back soon in Firle, South Australia.">
+
+  <!-- Inline SVG favicon: gold "P" on espresso background -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%232A3020'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia%2Cserif' font-size='21' font-weight='400' fill='%23B8A96A'%3EP%3C%2Ftext%3E%3C%2Fsvg%3E">
+
+  <!-- Google Fonts: Cormorant Garamond + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --cream:      #F2EDE3;
+      --warm-white: #F8F5EF;
+      --espresso:   #2A3020;
+      --dark-brown: #1E2518;
+      --sage:       #5C7A3E;
+      --sage-light: #7A9C58;
+      --gold:       #B8A96A;
+      --gold-light: #D4C98A;
+
+      --space-5:    1.25rem;
+      --space-6:    1.5rem;
+      --radius-lg:  10px;
+      --shadow-lg:  0 4px 20px rgba(30,37,24,0.15), 0 1px 4px rgba(30,37,24,0.08);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--espresso);
+      color: var(--cream);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ===== UTILITY ===== */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* =====================================================================
+       HERO
+       ===================================================================== */
+    .hero {
+      position: relative;
+      min-height: 70dvh;
+      max-height: 100dvh;
+      background-color: var(--espresso);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Gold halo glow behind wordmark */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 44%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(680px, 80%);
+      height: 55%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(184,169,106,0.22) 0%,
+        rgba(184,169,106,0.09) 38%,
+        transparent 68%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Marble veins SVG */
+    .hero-marble {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.07;
+    }
+
+    /* Animated film grain */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 220px 220px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.38;
+      animation: grain-drift 0.65s steps(1) infinite;
+    }
+
+    @keyframes grain-drift {
+      0%   { background-position:   0%   0%; }
+      11%  { background-position:  55%  22%; }
+      22%  { background-position:  28%  68%; }
+      33%  { background-position:  82%  12%; }
+      44%  { background-position:  18%  82%; }
+      55%  { background-position:  64%  38%; }
+      66%  { background-position:   8%  58%; }
+      77%  { background-position:  72%  28%; }
+      88%  { background-position:  44%  74%; }
+      100% { background-position:   0%   0%; }
+    }
+
+    /* Top-right corner lockup */
+    .hero-corner {
+      position: absolute;
+      top: clamp(1.25rem, 4vw, 2rem);
+      right: clamp(1.25rem, 4vw, 2rem);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      opacity: 0.52;
+      text-transform: uppercase;
+      z-index: 10;
+      user-select: none;
+    }
+
+    /* Bottom-left olive sprig */
+    .hero-sprig {
+      position: absolute;
+      bottom: clamp(1.25rem, 4vw, 2rem);
+      left: clamp(1.25rem, 4vw, 2rem);
+      width: 76px; height: 96px;
+      opacity: 0.22;
+      z-index: 10;
+    }
+
+    /* Hero center content */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -4vh;
+    }
+
+    .hero-rule {
+      width: 40px; height: 1px;
+      background-color: var(--gold);
+      opacity: 0.5;
+      margin-bottom: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-logo {
+      display: block;
+      width: clamp(280px, 75vw, 420px);
+      margin: 0 auto 1.75rem;
+      line-height: 0;
+    }
+
+    @media (min-width: 768px) {
+      .hero-logo { width: clamp(420px, 30vw, 600px); }
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 30px rgba(184, 169, 106, 0.25));
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+      color: var(--cream);
+      opacity: 0.75;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-style: italic;
+      font-size: clamp(0.78rem, 1.7vw, 0.9rem);
+      color: var(--cream);
+      opacity: 0.55;
+    }
+
+    /* =====================================================================
+       EDITORIAL SECTION
+       ===================================================================== */
+    .editorial-section {
+      background-color: var(--warm-white);
+      padding: 4rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .editorial-section { padding: 6rem 1.5rem; }
+    }
+
+    .editorial-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-header { margin-bottom: 2rem; }
+
+    .section-eyebrow {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 300;
+      color: var(--espresso);
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-heading em { font-style: italic; }
+
+    .section-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--espresso);
+      opacity: 0.65;
+      line-height: 1.65;
+    }
+
+    .editorial-inner { margin-bottom: 2.5rem; }
+
+    /* Gallery */
+    .gallery-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery {
+      display: grid;
+      gap: var(--space-6);
+      grid-template-columns: 1fr;
+    }
+
+    .gallery picture {
+      display: block;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 16 / 9;
+    }
+
+    .gallery picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(180px, auto);
+        gap: var(--space-5);
+      }
+      .gallery > :nth-child(1) { grid-column: span 4; grid-row: span 2; }
+      .gallery > :nth-child(2) { grid-column: span 2; grid-row: span 2; }
+      .gallery > :nth-child(3) { grid-column: span 3; }
+      .gallery > :nth-child(4) { grid-column: span 3; }
+      .gallery > :nth-child(5) { grid-column: span 3; }
+      .gallery > :nth-child(6) { grid-column: span 3; }
+
+      .gallery picture {
+        aspect-ratio: unset;
+        height: 100%;
+      }
+    }
+
+    @media (hover: hover) {
+      .gallery picture:hover img {
+        transform: scale(1.02);
+        filter: brightness(1.05);
+      }
+    }
+
+    .gallery-credit {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--espresso);
+      opacity: 0.45;
+      font-style: italic;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-grain { animation: none; }
+      .gallery picture img { transition: none; }
+    }
+
+    /* =====================================================================
+       INFO BAND
+       ===================================================================== */
+    .info-band {
+      background-color: var(--espresso);
+      border-top: 1px solid rgba(184,169,106,0.12);
+      padding: 4rem 1.5rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .info-col {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Mobile: horizontal rule between columns */
+    .info-col + .info-col {
+      border-top: 1px solid rgba(184,169,106,0.1);
+    }
+
+    /* Tablet+: vertical rule between columns */
+    @media (min-width: 768px) {
+      .info-col + .info-col {
+        border-top: none;
+        border-left: 1px solid rgba(184,169,106,0.1);
+      }
+    }
+
+    .info-label {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .info-main {
+      display: block;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-detail {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      color: var(--cream);
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
+    /* Contact: tel link → Cormorant italic, email → DM Sans */
+    a.info-main, a.info-detail {
+      color: inherit;
+      text-decoration: none;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    a.info-main:hover, a.info-detail:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      opacity: 1;
+    }
+
+    a.info-detail { min-height: 44px; }
+
+    /* =====================================================================
+       FOOTER
+       ===================================================================== */
+    .footer {
+      background-color: var(--espresso);
+      border-top: 1px solid rgba(184,169,106,0.12);
+      padding: 2.5rem 1.5rem calc(2.5rem + env(safe-area-inset-bottom, 0px));
+      text-align: center;
+    }
+
+    .footer-wordmark {
+      display: block;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-family {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--cream);
+      opacity: 0.45;
+      margin-bottom: 0.45rem;
+      line-height: 1.55;
+    }
+
+    .footer-copy {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      color: var(--cream);
+      opacity: 0.3;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================================================================
+       HERO
+       =================================================================== -->
+  <section class="hero" aria-label="Coming soon announcement">
+
+    <!-- Marble vein SVG overlay -->
+    <svg class="hero-marble" aria-hidden="true"
+         xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice">
+      <g fill="none" stroke="#B8A96A" stroke-width="0.75" stroke-linecap="round">
+        <!-- Horizontal / wandering veins -->
+        <path d="M-30,155 C110,132 270,165 440,148 S720,128 910,146 S1160,168 1370,140 S1450,128 1480,133"/>
+        <path d="M-20,318 C100,296 265,332 455,312 S740,290 950,308 S1195,328 1410,302 S1460,290 1490,296"/>
+        <path d="M40,482 C195,458 390,494 580,474 S860,452 1060,470 S1290,492 1470,464"/>
+        <path d="M-45,648 C96,624 308,660 518,638 S800,616 1020,634 S1260,656 1440,628"/>
+        <path d="M10,822 C170,798 362,832 570,810 S858,786 1082,804 S1322,826 1490,800"/>
+        <!-- Diagonal / vertical veins -->
+        <path d="M345,0 C332,118 355,284 326,446 S352,608 320,768 S340,872 328,900"/>
+        <path d="M775,0 C790,148 762,316 782,488 S752,658 772,830 S786,882 775,900"/>
+        <path d="M1190,0 C1202,102 1168,264 1188,444 S1158,612 1178,782 S1192,872 1184,900"/>
+      </g>
+    </svg>
+
+    <!-- Film grain overlay -->
+    <div class="hero-grain" aria-hidden="true"></div>
+
+    <!-- Top-right corner lockup -->
+    <p class="hero-corner" aria-hidden="true">GLYNBURN RD / FIRLE · SA</p>
+
+    <!-- Bottom-left olive sprig SVG ornament -->
+    <svg class="hero-sprig" aria-hidden="true"
+         xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 76 96" fill="none">
+      <!-- Main stem -->
+      <path d="M37,94 C35,76 37,58 35,40 S37,16 41,4"
+            stroke="#B8A96A" stroke-width="1.7" stroke-linecap="round"/>
+      <!-- Left branches & leaves -->
+      <path d="M36,76 C30,70 22,68 16,66"
+            stroke="#B8A96A" stroke-width="1.2" stroke-linecap="round"/>
+      <ellipse cx="12" cy="64" rx="6.5" ry="3.5" transform="rotate(-24,12,64)" fill="#B8A96A"/>
+      <path d="M36,59 C29,53 21,51 14,49"
+            stroke="#B8A96A" stroke-width="1.1" stroke-linecap="round"/>
+      <ellipse cx="10" cy="47" rx="6" ry="3.5" transform="rotate(-20,10,47)" fill="#B8A96A"/>
+      <path d="M37,40 C30,34 22,31 15,29"
+            stroke="#B8A96A" stroke-width="1" stroke-linecap="round"/>
+      <ellipse cx="11" cy="27" rx="5.5" ry="3" transform="rotate(-17,11,27)" fill="#B8A96A"/>
+      <!-- Right branches & leaves -->
+      <path d="M38,67 C46,61 54,59 61,57"
+            stroke="#B8A96A" stroke-width="1.2" stroke-linecap="round"/>
+      <ellipse cx="65" cy="55" rx="6.5" ry="3.5" transform="rotate(22,65,55)" fill="#B8A96A"/>
+      <path d="M39,49 C47,43 56,41 63,39"
+            stroke="#B8A96A" stroke-width="1.1" stroke-linecap="round"/>
+      <ellipse cx="67" cy="37" rx="6" ry="3" transform="rotate(24,67,37)" fill="#B8A96A"/>
+      <path d="M40,28 C47,22 55,19 62,16"
+            stroke="#B8A96A" stroke-width="1" stroke-linecap="round"/>
+      <ellipse cx="66" cy="14" rx="5.5" ry="3" transform="rotate(26,66,14)" fill="#B8A96A"/>
+      <!-- Small olive berries -->
+      <circle cx="12" cy="64" r="1.8" fill="#B8A96A" opacity="0.6"/>
+      <circle cx="65" cy="55" r="1.8" fill="#B8A96A" opacity="0.6"/>
+      <circle cx="10" cy="47" r="1.5" fill="#B8A96A" opacity="0.5"/>
+    </svg>
+
+    <!-- Center content -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">Under Renovation</p>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <h1 class="hero-logo">
+        <img src="assets/primo-firle-logo.png" alt="Primo Firle" width="600">
+      </h1>
+      <p class="hero-tagline">Italian dining for the whole famiglia.</p>
+      <p class="hero-sub">Refreshing your favourite local. Back soon.</p>
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================================
+       EDITORIAL / RENOVATION
+       =================================================================== -->
+  <section class="editorial-section" aria-labelledby="editorial-heading">
+    <div class="editorial-inner">
+      <header class="section-header">
+        <span class="section-eyebrow">A Taste of What's Coming</span>
+        <h2 class="section-heading" id="editorial-heading">A <em>fresh</em> chapter</h2>
+        <p class="section-sub">A glimpse at the new space, coming to Glynburn Road. The same famiglia heart — refreshed, refined, and ready to welcome you back.</p>
+      </header>
+    </div>
+
+    <div class="gallery-wrap">
+      <div class="gallery">
+
+        <picture>
+          <source type="image/webp" srcset="assets/render-01-interior-golden.webp">
+          <img src="assets/render-01-interior-golden.jpg"
+               alt="Sunlit dining hall with banquette seating and bar area"
+               loading="lazy" decoding="async"
+               width="1400" height="785">
+        </picture>
+
+        <picture>
+          <source type="image/webp" srcset="assets/render-02-arches.webp">
+          <img src="assets/render-02-arches.jpg"
+               alt="Arched booths with planters and pendant lighting"
+               loading="lazy" decoding="async"
+               width="1400" height="785">
+        </picture>
+
+        <picture>
+          <source type="image/webp" srcset="assets/render-03-booth-detail.webp">
+          <img src="assets/render-03-booth-detail.jpg"
+               alt="Close-up of arched booth seating with green accents"
+               loading="lazy" decoding="async"
+               width="1400" height="785">
+        </picture>
+
+        <picture>
+          <source type="image/webp" srcset="assets/render-04-evening-dining.webp">
+          <img src="assets/render-04-evening-dining.jpg"
+               alt="Evening dining with set tables and white linen"
+               loading="lazy" decoding="async"
+               width="1400" height="785">
+        </picture>
+
+        <picture>
+          <source type="image/webp" srcset="assets/render-05-exterior.webp">
+          <img src="assets/render-05-exterior.jpg"
+               alt="Primo exterior signage at dusk"
+               loading="lazy" decoding="async"
+               width="1400" height="785">
+        </picture>
+
+        <picture>
+          <source type="image/webp" srcset="assets/render-06-terrace.webp">
+          <img src="assets/render-06-terrace.jpg"
+               alt="Outdoor terrace with umbrellas and brick paving"
+               loading="lazy" decoding="async"
+               width="1400" height="785">
+        </picture>
+
+      </div>
+      <p class="gallery-credit">Renders by ACDESIGN.</p>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       INFO BAND
+       =================================================================== -->
+  <section class="info-band" aria-labelledby="info-heading">
+    <h2 id="info-heading" class="sr-only">Restaurant Details</h2>
+
+    <div class="info-grid">
+
+      <div class="info-col">
+        <span class="info-label">Location</span>
+        <span class="info-main">Glynburn Rd</span>
+        <span class="info-detail">Firle SA 5070</span>
+      </div>
+
+      <div class="info-col">
+        <span class="info-label">Reopening</span>
+        <span class="info-main">Coming soon</span>
+        <span class="info-detail">We'll keep you posted</span>
+      </div>
+
+      <div class="info-col">
+        <span class="info-label">Contact</span>
+        <a href="tel:+61883620000" class="info-main">(08) 8362 XXXX</a>
+        <a href="mailto:hello@cafeprimofirle.com.au" class="info-detail">hello@cafeprimofirle.com.au</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="footer">
+    <span class="footer-wordmark">Primo Firle</span>
+    <span class="footer-family">Part of the Caffe Primo family of restaurants.</span>
+    <span class="footer-copy">© 2026 Cafe Primo Firle. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>

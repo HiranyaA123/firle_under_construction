@@ -290,49 +290,73 @@
       grid-template-columns: 1fr;
     }
 
-    .gallery picture {
-      display: block;
+    .gallery-item {
+      position: relative;
       overflow: hidden;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       aspect-ratio: 16 / 9;
     }
 
-    .gallery picture img {
+    /* Warm gold/espresso tint overlay */
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(184, 169, 106, 0.08) 0%,
+        rgba(42, 48, 32, 0.12) 100%
+      );
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .gallery-item picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: 60% 30%;
       display: block;
-      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: blur(2px) saturate(1.05);
+      transition: filter 0.5s ease;
     }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .gallery { grid-template-columns: 1fr 1fr; }
+    /* Exterior render has a different composition — pull slightly
+       more centre-right to keep the signage prominent */
+    .gallery-item:nth-child(3) img {
+      object-position: 70% 40%;
+    }
+
+    @media (min-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--space-6);
+      }
     }
 
     @media (min-width: 1024px) {
       .gallery {
-        grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows: minmax(180px, auto);
+        grid-template-columns: 1.5fr 1fr 1fr;
+        grid-auto-rows: 320px;
         gap: var(--space-5);
       }
-      .gallery > :nth-child(1) { grid-column: span 4; grid-row: span 2; }
-      .gallery > :nth-child(2) { grid-column: span 2; grid-row: span 2; }
-      .gallery > :nth-child(3) { grid-column: span 3; }
-      .gallery > :nth-child(4) { grid-column: span 3; }
-      .gallery > :nth-child(5) { grid-column: span 3; }
-      .gallery > :nth-child(6) { grid-column: span 3; }
-
-      .gallery picture {
-        aspect-ratio: unset;
-        height: 100%;
-      }
+      .gallery-item { aspect-ratio: unset; }
     }
 
+    /* Hover: blur clears, overlay fades back — desktop only */
     @media (hover: hover) {
-      .gallery picture:hover img {
-        transform: scale(1.02);
-        filter: brightness(1.05);
+      .gallery-item:hover img {
+        filter: blur(0px) saturate(1.05);
+      }
+      .gallery-item:hover::after {
+        opacity: 0.4;
       }
     }
 
@@ -349,7 +373,8 @@
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .hero-grain { animation: none; }
-      .gallery picture img { transition: none; }
+      .gallery-item img,
+      .gallery-item::after { transition: none; }
     }
 
     /* =====================================================================
@@ -569,60 +594,42 @@
       <header class="section-header">
         <span class="section-eyebrow">A Taste of What's Coming</span>
         <h2 class="section-heading" id="editorial-heading">A <em>fresh</em> chapter</h2>
-        <p class="section-sub">A glimpse at the new space, coming to Glynburn Road. The same famiglia heart — refreshed, refined, and ready to welcome you back.</p>
+        <p class="section-sub">An early look at the refresh. Designs may evolve — the warm welcome won't.</p>
       </header>
     </div>
 
     <div class="gallery-wrap">
       <div class="gallery">
 
-        <picture>
-          <source type="image/webp" srcset="assets/render-01-interior-golden.webp">
-          <img src="assets/render-01-interior-golden.jpg"
-               alt="Sunlit dining hall with banquette seating and bar area"
-               loading="lazy" decoding="async"
-               width="1400" height="785">
-        </picture>
+        <div class="gallery-item">
+          <picture>
+            <source type="image/webp" srcset="assets/render-01-interior-golden.webp">
+            <img src="assets/render-01-interior-golden.jpg"
+                 alt="Sunlit dining hall with banquette seating and bar area"
+                 loading="lazy" decoding="async"
+                 width="1400" height="785">
+          </picture>
+        </div>
 
-        <picture>
-          <source type="image/webp" srcset="assets/render-02-arches.webp">
-          <img src="assets/render-02-arches.jpg"
-               alt="Arched booths with planters and pendant lighting"
-               loading="lazy" decoding="async"
-               width="1400" height="785">
-        </picture>
+        <div class="gallery-item">
+          <picture>
+            <source type="image/webp" srcset="assets/render-02-arches.webp">
+            <img src="assets/render-02-arches.jpg"
+                 alt="Arched booths with planters and pendant lighting"
+                 loading="lazy" decoding="async"
+                 width="1400" height="785">
+          </picture>
+        </div>
 
-        <picture>
-          <source type="image/webp" srcset="assets/render-03-booth-detail.webp">
-          <img src="assets/render-03-booth-detail.jpg"
-               alt="Close-up of arched booth seating with green accents"
-               loading="lazy" decoding="async"
-               width="1400" height="785">
-        </picture>
-
-        <picture>
-          <source type="image/webp" srcset="assets/render-04-evening-dining.webp">
-          <img src="assets/render-04-evening-dining.jpg"
-               alt="Evening dining with set tables and white linen"
-               loading="lazy" decoding="async"
-               width="1400" height="785">
-        </picture>
-
-        <picture>
-          <source type="image/webp" srcset="assets/render-05-exterior.webp">
-          <img src="assets/render-05-exterior.jpg"
-               alt="Primo exterior signage at dusk"
-               loading="lazy" decoding="async"
-               width="1400" height="785">
-        </picture>
-
-        <picture>
-          <source type="image/webp" srcset="assets/render-06-terrace.webp">
-          <img src="assets/render-06-terrace.jpg"
-               alt="Outdoor terrace with umbrellas and brick paving"
-               loading="lazy" decoding="async"
-               width="1400" height="785">
-        </picture>
+        <div class="gallery-item">
+          <picture>
+            <source type="image/webp" srcset="assets/render-05-exterior.webp">
+            <img src="assets/render-05-exterior.jpg"
+                 alt="Primo exterior signage at dusk"
+                 loading="lazy" decoding="async"
+                 width="1400" height="785">
+          </picture>
+        </div>
 
       </div>
       <p class="gallery-credit">Renders by ACDESIGN.</p>

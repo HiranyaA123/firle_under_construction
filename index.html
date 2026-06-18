@@ -3,20 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Caffe Primo Firle — Under Renovation | Italian Dining, Firle SA</title>
-  <meta name="description" content="Caffe Primo Firle is now open for takeaway from Friday 20 June. Order via Uber Eats or DoorDash. Italian dining in Firle SA 5070. Dine-in coming soon.">
+  <title>Caffe Primo Firle | Takeaway Now Open · Firle SA</title>
+  <meta name="description" content="Caffe Primo Firle is open for takeaway. Order via Uber Eats or DoorDash, or call to order. Italian dining in Firle SA 5070. Dine-in coming soon.">
   <link rel="canonical" href="https://caffeprimofirle.com.au/">
   <meta name="google-site-verification" content="89f30d58cb26f4f9">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Caffe Primo Firle — Under Renovation, Back Soon">
-  <meta property="og:description" content="Italian dining for the whole famiglia. Caffe Primo Firle is under renovation and will be back soon in Firle, South Australia.">
+  <meta property="og:title" content="Caffe Primo Firle | Takeaway Now Open">
+  <meta property="og:description" content="Caffe Primo Firle is open for takeaway. Order via Uber Eats or DoorDash, or call to order. Italian dining in Firle SA 5070. Dine-in coming soon.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://caffeprimofirle.com.au">
+  <meta property="og:image" content="https://caffeprimofirle.com.au/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:type" content="image/png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Caffe Primo Firle — Under Renovation, Back Soon">
-  <meta name="twitter:description" content="Italian dining for the whole famiglia. Caffe Primo Firle is under renovation and will be back soon in Firle, South Australia.">
+  <meta name="twitter:title" content="Caffe Primo Firle | Takeaway Now Open">
+  <meta name="twitter:description" content="Caffe Primo Firle is open for takeaway. Order via Uber Eats or DoorDash, or call to order. Italian dining in Firle SA 5070. Dine-in coming soon.">
+  <meta name="twitter:image" content="https://caffeprimofirle.com.au/assets/og-image.png">
 
   <!-- Inline SVG favicon: gold "P" on espresso background -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%232A3020'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia%2Cserif' font-size='21' font-weight='400' fill='%23B8A96A'%3EP%3C%2Ftext%3E%3C%2Fsvg%3E">
@@ -75,7 +81,6 @@
     .hero {
       position: relative;
       min-height: 70dvh;
-      max-height: 100dvh;
       background-color: var(--espresso);
       overflow: hidden;
       display: flex;
@@ -144,17 +149,52 @@
       top: clamp(1.25rem, 4vw, 2rem);
       right: clamp(1.25rem, 4vw, 2rem);
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.58rem;
+      font-size: 0.75rem;
       font-weight: 400;
       letter-spacing: 0.22em;
       color: var(--gold);
-      opacity: 0.52;
+      opacity: 0.8;
       text-transform: uppercase;
       z-index: 10;
       user-select: none;
     }
     @media (min-width: 640px) {
       .hero-corner { display: block; }
+    }
+
+    /* Top-left corner lockup (opening hours) — mirrors .hero-corner */
+    .hero-corner-left {
+      display: none;
+      position: absolute;
+      top: clamp(1.25rem, 4vw, 2rem);
+      left: clamp(1.25rem, 4vw, 2rem);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      opacity: 0.8;
+      text-transform: uppercase;
+      text-align: left;
+      line-height: 1.7;
+      z-index: 10;
+      user-select: none;
+    }
+    @media (min-width: 640px) {
+      .hero-corner-left { display: block; }
+    }
+
+    /* Compact hours line shown in hero flow on mobile only */
+    .hero-hours-mobile {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: rgba(184,169,106,0.85);
+      text-align: center;
+      margin-top: 10px;
+    }
+    @media (min-width: 640px) {
+      .hero-hours-mobile { display: none; }
     }
 
     /* Bottom-left olive sprig */
@@ -203,13 +243,13 @@
 
     .hero-logo {
       display: block;
-      width: clamp(224px, 60vw, 336px);
+      width: clamp(190px, 51vw, 286px);
       margin: 0 auto 1.75rem;
       line-height: 0;
     }
 
     @media (min-width: 768px) {
-      .hero-logo { width: clamp(336px, 24vw, 480px); }
+      .hero-logo { width: clamp(286px, 20.4vw, 408px); }
       .hero-content { margin-top: 0; }
     }
 
@@ -235,6 +275,80 @@
       font-size: clamp(0.78rem, 1.7vw, 0.9rem);
       color: var(--cream);
       opacity: 0.55;
+    }
+
+    /* Hero call-to-order block (primary CTA) */
+    .hero-call-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: #B8A96A;
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+
+    .hero-phones {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-phone {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      color: #D4C98A;
+      text-decoration: none;
+      line-height: 1.1;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .hero-phone:hover {
+      color: #F8F5EF;
+    }
+
+    .hero-phone-sep {
+      color: rgba(184,169,106,0.4);
+      font-size: 1.6rem;
+    }
+
+    .hero-delivery-divider {
+      margin: 24px auto 16px;
+      width: 48px;
+      height: 1px;
+      background: rgba(184,169,106,0.3);
+    }
+
+    .hero-delivery-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: rgba(248,245,239,0.5);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 639px) {
+      .hero { padding-top: calc(40px + env(safe-area-inset-top)); }
+      .hero-phones {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .hero-phone {
+        font-size: 1.6rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-phone-sep { display: none; }
     }
 
     /* =====================================================================
@@ -463,6 +577,139 @@
 
     a.info-detail { min-height: 44px; }
 
+    /* --- Info band redesign: status row --- */
+    .info-status {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .status-pills {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .status-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .status-pill--open {
+      background: #5C7A3E;
+      color: #F8F5EF;
+    }
+
+    .status-pill--reno {
+      background: transparent;
+      color: #B8A96A;
+      border: 1.5px solid #B8A96A;
+    }
+
+    /* --- Info band redesign: Order Now column --- */
+    .order-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .order-btn {
+      border-radius: 999px;
+      padding: 10px 24px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .order-btn--uber {
+      background: #5C7A3E;
+      color: #F8F5EF;
+    }
+
+    .order-btn--dd {
+      background: transparent;
+      color: #B8A96A;
+      border: 1.5px solid #B8A96A;
+    }
+
+    .order-divider {
+      margin: 16px auto;
+      width: 40px;
+      height: 1px;
+      background: rgba(184,169,106,0.3);
+    }
+
+    .order-note {
+      font-size: 0.68rem;
+      color: rgba(248,245,239,0.5);
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .order-phones {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .order-phone {
+      color: #D4C98A;
+      font-size: 1.05rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .order-sep {
+      color: rgba(184,169,106,0.35);
+    }
+
+    /* --- Info band redesign: Find Us column --- */
+    .info-directions {
+      display: inline-block;
+      margin-top: 0.9rem;
+      color: #B8A96A;
+      font-size: 0.78rem;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    /* Mobile (below 640px): stack status pills, hide dividers,
+       full-width order buttons */
+    @media (max-width: 639px) {
+      .status-pills {
+        flex-direction: column;
+        align-items: center;
+      }
+      .info-col + .info-col {
+        border-top: none;
+      }
+      .order-btn {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+    }
+
     /* =====================================================================
        FOOTER
        ===================================================================== */
@@ -536,6 +783,9 @@
     <!-- Top-right corner lockup -->
     <p class="hero-corner" aria-hidden="true">GLYNBURN RD / FIRLE · SA</p>
 
+    <!-- Top-left corner lockup -->
+    <p class="hero-corner-left" aria-hidden="true">OPEN DAILY<br>4PM – 9PM</p>
+
     <!-- Bottom-left olive sprig SVG ornament -->
     <svg class="hero-sprig" aria-hidden="true"
          xmlns="http://www.w3.org/2000/svg"
@@ -578,9 +828,18 @@
       </h1>
       <p class="hero-tagline">Italian dining for the whole famiglia.</p>
       <p class="hero-sub">Takeaway available from Friday 20 June. Dine-in coming soon.</p>
+      <p class="hero-hours-mobile">Open daily · 4–9pm</p>
+      <p class="hero-call-label">Call to order takeaway</p>
+      <div class="hero-phones">
+        <a href="tel:0450950083" class="hero-phone">0450 950 083</a>
+        <span class="hero-phone-sep" aria-hidden="true">·</span>
+        <a href="tel:0449145195" class="hero-phone">0449 145 195</a>
+      </div>
+      <div class="hero-delivery-divider" aria-hidden="true"></div>
+      <p class="hero-delivery-label">Or order delivery</p>
       <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px;">
-        <a href="#" style="background:#5C7A3E; color:#F8F5EF; border:none; border-radius:999px; padding:10px 22px; font-size:0.85rem; font-weight:600; text-decoration:none; letter-spacing:0.03em;">Order on Uber Eats</a>
-        <a href="#" style="background:transparent; color:#B8A96A; border:2px solid #B8A96A; border-radius:999px; padding:10px 22px; font-size:0.85rem; font-weight:600; text-decoration:none; letter-spacing:0.03em;">Order on DoorDash</a>
+        <a href="https://www.ubereats.com/au/store/caffe-primo-firle/9UPYxs_2W2u246C3ZK5TTA?diningMode=DELIVERY" target="_blank" rel="noopener noreferrer" style="background:#5C7A3E; color:#F8F5EF; border:none; border-radius:999px; padding:10px 22px; font-size:0.85rem; font-weight:600; text-decoration:none; letter-spacing:0.03em;">Order on Uber Eats</a>
+        <a href="https://www.doordash.com/en-AU/store/caffe-primo-firle-2382168/2438829/" target="_blank" rel="noopener noreferrer" style="background:#5C7A3E; color:#F8F5EF; border:none; border-radius:999px; padding:10px 22px; font-size:0.85rem; font-weight:600; text-decoration:none; letter-spacing:0.03em;">Order on DoorDash</a>
       </div>
     </div>
 
@@ -644,24 +903,48 @@
   <section class="info-band" aria-labelledby="info-heading">
     <h2 id="info-heading" class="sr-only">Restaurant Details</h2>
 
-    <div class="info-grid">
+    <div style="max-width: 900px; margin: 0 auto;">
 
-      <div class="info-col">
-        <span class="info-label">Location</span>
-        <span class="info-main">Glynburn Rd</span>
-        <span class="info-detail">Firle SA 5070</span>
+      <!-- ROW A — Status bar -->
+      <div class="info-status">
+        <span class="info-label">Current Status</span>
+        <div class="status-pills">
+          <span class="status-pill status-pill--open">✓ Takeaway Open</span>
+          <span class="status-pill status-pill--reno">Dine-in · Renovation Ongoing</span>
+        </div>
       </div>
 
-      <div class="info-col">
-        <span class="info-label">Reopening</span>
-        <span class="info-main">Coming soon</span>
-        <span class="info-detail">We'll keep you posted</span>
-      </div>
+      <!-- ROW B — Three columns -->
+      <div class="info-grid">
 
-      <div class="info-col">
-        <span class="info-label">Contact</span>
-        <a href="tel:+61883620000" class="info-main">0450950083</a>
-       
+        <div class="info-col">
+          <span class="info-label">Location</span>
+          <span class="info-main">Glynburn Rd</span>
+          <span class="info-detail">Firle SA 5070</span>
+        </div>
+
+        <div class="info-col">
+          <span class="info-label">Order Now</span>
+          <div class="order-buttons">
+            <a href="https://www.ubereats.com/au/store/caffe-primo-firle/9UPYxs_2W2u246C3ZK5TTA?diningMode=DELIVERY" target="_blank" rel="noopener noreferrer" class="order-btn order-btn--uber">Uber Eats Delivery</a>
+            <a href="https://www.doordash.com/en-AU/store/caffe-primo-firle-2382168/2438829/" target="_blank" rel="noopener noreferrer" class="order-btn order-btn--dd">DoorDash Delivery</a>
+          </div>
+          <div class="order-divider" aria-hidden="true"></div>
+          <p class="order-note">Or call to order</p>
+          <div class="order-phones">
+            <a href="tel:0450950083" class="order-phone">0450 950 083</a>
+            <span class="order-sep" aria-hidden="true">·</span>
+            <a href="tel:0449145195" class="order-phone">0449 145 195</a>
+          </div>
+        </div>
+
+        <div class="info-col">
+          <span class="info-label">Find Us</span>
+          <span class="info-main">Adelaide's east</span>
+          <span class="info-detail">Just off The Parade</span>
+          <a href="https://maps.google.com/?q=Caffe+Primo+Firle+Glynburn+Rd+Firle+SA+5070" target="_blank" rel="noopener noreferrer" class="info-directions">Get directions →</a>
+        </div>
+
       </div>
 
     </div>

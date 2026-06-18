@@ -5,7 +5,12 @@
       "PowerShell(Get-Item *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git --no-pager diff index.html)",
+      "Bash(git --no-pager diff index.html --)",
+      "Bash(git --no-pager diff -- index.html)",
+      "Bash(git --no-pager diff -U2 -- index.html)",
+      "Bash(git --no-pager diff -U3 -- index.html)"
     ]
   }
 }
